@@ -1,11 +1,14 @@
 import express from "express";
 import fetch from "node-fetch";
 import { config } from "dotenv";
+import cors from "cors";
 
 config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(cors());
 
 app.get("/giphy", async (req, res) => {
   const query = req.query.s;
