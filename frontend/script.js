@@ -1,12 +1,15 @@
 const img = document.querySelector("img");
 
-fetch("http://localhost:3000/giphy?s=dogs", { mode: "cors" })
-  .then((response) => response.json())
-  .then((data) => {
-    const imageUrl = data.data.images.original.url;
+// random gif
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("http://localhost:3000/giphy/random", { mode: "cors" })
+    .then((response) => response.json())
+    .then((data) => {
+      const imageUrl = data.data.images.original.url;
 
-    img.src = imageUrl;
-  })
-  .catch((error) => {
-    console.error("Error fetching image:", error);
-  });
+      img.src = imageUrl;
+    })
+    .catch((error) => {
+      console.error("Error fetching image:", error);
+    });
+});
