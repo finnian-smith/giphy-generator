@@ -8,8 +8,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get("/giphy", async (req, res) => {
-  const query = req.query.q;
-  const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=${query}&limit=5`;
+  const query = req.query.s;
+  const url = `https://api.giphy.com/v1/gifs/translate?api_key=${process.env.GIPHY_API_KEY}&s=${query}`;
 
   try {
     const response = await fetch(url);
