@@ -144,7 +144,6 @@ button:hover {
 
 /* Image Container */
 .image-container {
-  border: 3px solid red;
   display: flex;
   margin-bottom: 30px;
   width: 80%;

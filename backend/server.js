@@ -3,11 +3,14 @@ import fetch from "node-fetch";
 import { config } from "dotenv";
 import cors from "cors";
 
+// load environment variables
 config();
 
+// initialise express app
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// middleware
 app.use(cors());
 
 // random gif
@@ -37,7 +40,7 @@ app.get("/giphy/search", async (req, res) => {
   }
 });
 
-// port
+// start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

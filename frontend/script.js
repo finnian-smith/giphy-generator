@@ -5,6 +5,7 @@ const form = document.querySelector("form");
 // event listener for random on load
 document.addEventListener("DOMContentLoaded", getRandomGif);
 
+// event listener for random gif
 randomButton.addEventListener("click", getRandomGif);
 
 // event listener for search
