@@ -21,29 +21,32 @@ form.addEventListener("submit", (event) => {
 });
 
 // fetches random gif
-function getRandomGif() {
-  fetch("http://localhost:3000/giphy/random", { mode: "cors" })
-    .then((response) => response.json())
-    .then((data) => {
-      const imageUrl = data.data.images.original.url;
-
-      img.src = imageUrl;
-    })
-    .catch((error) => {
-      console.error("Error fetching image:", error);
+async function getRandomGif() {
+  try {
+    const response = await fetch("http://localhost:3000/giphy/random", {
+      mode: "cors",
     });
+    const data = await response.json();
+    const imageUrl = data.data.images.original.url;
+
+    img.src = imageUrl;
+  } catch (error) {
+    console.error("Error fetching image:", error);
+  }
 }
 
 // fetch searched gif
-function getQueryGif(query) {
-  fetch(`http://localhost:3000/giphy/search?s=${query}`, { mode: "cors" })
-    .then((response) => response.json())
-    .then((data) => {
-      const imageUrl = data.data.images.original.url;
+async function getQueryGif(query) {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/giphy/search?s=${query}`,
+      { mode: "cors" }
+    );
+    const data = await response.json();
+    const imageUrl = data.data.images.original.url;
 
-      img.src = imageUrl;
-    })
-    .catch((error) => {
-      console.error("Error fetching image:", error);
-    });
+    img.src = imageUrl;
+  } catch (error) {
+    console.error("Error fetching image:", error);
+  }
 }
